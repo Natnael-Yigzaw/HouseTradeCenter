@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -51,7 +52,9 @@ const SignUp = () => {
 
       navigate("/");
     } catch (error) {
-      console.error(error.message);
+      toast.error(
+        "Error creating account! Please check your credentials and try again"
+      );
     }
   };
   return (
