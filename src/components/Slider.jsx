@@ -51,14 +51,16 @@ const Slider = () => {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >
-        {listing.map((data, id) => (
+        {listing.map((listing, id) => (
           <SwiperSlide
             key={id}
-            onClick={() => navigate(`/category/${data.data.type}/${data.id}`)}
+            onClick={() =>
+              navigate(`/category/${listing.data.type}/${listing.id}`)
+            }
           >
             <div
               style={{
-                backgroundImage: `url(${data.data.imgUrls[0]})`,
+                backgroundImage: `url(${listing.data.imgUrls[0]})`,
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
@@ -66,10 +68,10 @@ const Slider = () => {
                 height: "400px",
               }}
             >
-              <p className="swiperSlideText">{data.data.name}</p>
+              <p className="swiperSlideText">{listing.data.name}</p>
               <p className="swiperSlidePrice">
-                ${data.data.discountedPrice ?? data.data.regularPrice}{" "}
-                {data.data.type === "rent" && "/ month"}
+                ${listing.data.discountedPrice ?? listing.data.regularPrice}{" "}
+                {listing.data.type === "rent" && "/ month"}
               </p>
             </div>
           </SwiperSlide>
