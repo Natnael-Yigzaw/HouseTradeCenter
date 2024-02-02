@@ -46,11 +46,11 @@ const ListingItem = ({ listing, id, onEdit, onDelete }) => {
           </div>
         </div>
       </Link>
-      {onEdit && <DeleteIcon className="editIcon" onClick={() => onEdit(id)} />}
+      {onEdit && <EditIcon className="editIcon" onClick={() => onEdit(id)} />}
+
       {onDelete && (
-        <EditIcon
+        <DeleteIcon
           className="removeIcon"
-          fill="rgb(231,76,60)"
           onClick={() => onDelete(listing.id, listing.name)}
         />
       )}
